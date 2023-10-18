@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message ArrayRequest {
+  string key =1;
+  repeated float array = 2;
+  repeated int32 dim =3;
+}
+
+message ReqDictionary {
+  repeated ArrayRequest entry = 1;
+  int32 acc_no = 2;
+}
+
+message ArrayResponse {
+  string key =1;
+  repeated float array = 2;
+  repeated int32 dim =3;
+}
+
+
+message ResDictionary {
+  repeated ArrayResponse entry = 1;
+}

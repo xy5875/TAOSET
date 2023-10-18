@@ -1,0 +1,35 @@
+// python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. parameter_server.proto
+syntax = "proto3";
+
+import "common.proto";
+
+service ParameterService {
+    // 变量节点初始化接口
+    rpc VariableWeightsInit(ResDictionary) returns (ResDictionary) {}
+    // Push接口,各节点上传梯度
+    rpc Push(Req_Push_Dictionary ) returns (ParameterPushResp) {}
+    // Pull接口，各节点下拉梯度
+    rpc Pull(ParameterPullReq) returns (Res_Pull_Dictionary) {}
+}
+
+// Push请求，上传节点-梯度集合
+
+message Res_Pull_Dictionary {
+  repeated ArrayRequest entry = 1;
+}
+
+message Req_Push_Dictionary {
+  repeated ArrayRequest entry = 1;
+  int32 acc_no = 2;
+}
+
+
+// Push返回，暂不需要返回任何数据
+message ParameterPushResp {
+}
+
+// Pull请求，携带需要下拉梯度的节点
+message ParameterPullReq {
+    string name=1;
+  }
+// Pull返回，返回节点梯度

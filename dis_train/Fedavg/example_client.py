@@ -48,7 +48,7 @@ def load_data(batch_size):
 
 def train(worker_index, batch_size):
     train_data, test_data = load_data(batch_size)
-    epoches = 20
+    epoches  =  20
     # model =CNN()
     model = AlexNet()
     criterion = torch.nn.CrossEntropyLoss()

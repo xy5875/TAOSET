@@ -9,7 +9,6 @@ import logging
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-
 from torch.cuda.amp import autocast as autocast
 
 

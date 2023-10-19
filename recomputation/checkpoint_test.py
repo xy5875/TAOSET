@@ -2,7 +2,6 @@ import pandas as pd
 import torch
 from torch import nn
 from torchvision.models import resnet18
-
 from torch.utils.checkpoint import checkpoint_sequential
 from matplotlib import pyplot as plt
 

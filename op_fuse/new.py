@@ -34,6 +34,7 @@ def fuse(conv, bn):
 
     return fused
 
+
 def merge_conv_bn(net):
     """
     replace CNN+BN with CNN to speed up
